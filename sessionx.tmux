@@ -90,7 +90,7 @@ handle_args() {
 	RENAME_SESSION_RELOAD='bash -c '\'' tmux list-sessions | sed -E "s/:.*$//"; '\'''
 	RENAME_SESSION="$bind_rename_session:execute($RENAME_SESSION_EXEC)+reload($RENAME_SESSION_RELOAD)"
 
-	HEADER="$bind_accept=󰿄  $bind_kill_session=󱂧  $bind_rename_session=󰑕  $bind_configuration_mode=󱃖  $bind_window_mode=   $bind_new_window=󰇘  $bind_back=󰌍  $bind_tree_mode=󰐆   $bind_scroll_up=  $bind_scroll_down= / $bind_zo="
+    HEADER="$bind_accept=accept-s / $bind_kill_session=kill-s / $bind_rename_session=rename-s / $bind_configuration_mode=conf / $bind_window_mode=windows / $bind_new_window= / $bind_back=back / $bind_tree_mode=tree / $bind_scroll_up=up / $bind_scroll_down=down"
 	if is_fzf-marks_enabled; then
 		HEADER="$HEADER  $(get_fzf-marks_keybind)=󰣉"
 	fi
@@ -128,7 +128,7 @@ handle_args() {
 		--prompt "$prompt_icon"
 		--print-query
 		--tac
-		--scrollbar '▌▐'
+		# --scrollbar '▌▐'
 	)
 
 	legacy=$(tmux_option_or_fallback "@sessionx-legacy-fzf-support" "off")
